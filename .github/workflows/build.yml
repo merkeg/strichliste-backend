@@ -19,8 +19,8 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            ghcr.io/merkeg/general-shortener
-#            merkeg/general-shortener
+            ghcr.io/merkeg/strichliste-backend
+            merkeg/strichliste-backend
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule
@@ -40,6 +40,11 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push to registry
         uses: docker/build-push-action@v2
         with:
