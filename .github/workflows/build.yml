@@ -40,15 +40,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'adopt'
-          java-version: '17'
-      - name: Build with Maven
-        run: mvn clean package
-      - name: List target dir
-        run: ls -l ./target
       - name: Build and push to registry
         uses: docker/build-push-action@v2
         with:
