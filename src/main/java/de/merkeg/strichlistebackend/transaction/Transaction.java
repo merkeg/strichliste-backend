@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Entity
 @Table
@@ -31,6 +32,7 @@ public class Transaction {
     @Getter
     private LocalDateTime creationDate;
 
+    @Getter
     @ManyToOne
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private User owner;
