@@ -47,6 +47,8 @@ jobs:
           java-version: '17'
       - name: Build with Maven
         run: mvn clean package
+      - name: List target dir
+        run: ls -l ./target
       - name: Build and push to registry
         uses: docker/build-push-action@v2
         with:
