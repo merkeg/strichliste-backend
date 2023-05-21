@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "api/v1/transaction")
+@RequestMapping(path = "/v1/transaction")
 @Tag(name = "Transaction Management")
 public class TransactionResource {
 
